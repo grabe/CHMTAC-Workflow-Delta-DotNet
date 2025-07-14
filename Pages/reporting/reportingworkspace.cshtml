@@ -1,0 +1,50 @@
+﻿@page
+@model CHMR_DMP_PPR_Charlie_Docker.Pages.reporting.workspaceModel
+@{
+    <div class="container py-4 py-xl-5">
+        <div class="row text-center justify-content-center align-items-center">
+            <div class="col-auto"><img class="d-inline-flex d-md-flex justify-content-center align-items-center align-content-center align-self-center justify-content-md-center align-items-md-center" src="https://www.defense.gov/portals/1/Page-Assets/branding-guide/logos/png/DoD-Logo-Stacked-1-Color.png" width="300px"></div>
+        </div>
+        <div class="row mb-5 pb-md-0 mb-md-2">
+            <div class="col-md-8 col-xl-6 text-center mx-auto ps-0 pe-0">
+                <h2 class="ms-md-0 ps-md-0">Report Civilian Harm</h2>
+            </div>
+        </div>
+        <div class="row row-cols-md-2 row-cols-xl-3 justify-content-center">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body p-4 me-md-0">
+                        <div class="row">
+                            <div class="col text-center"><img width="100%" src="/enter-report.jpg"></div>
+                        </div>
+                        <h4 class="text-center card-title">New Report</h4>
+                        <p class="card-text">Fill out and submit a new report of suspected Civilian Harm.</p>
+                        <div class="row">
+                            <div class="col text-center">
+                                <button onclick="window.location.href='/reporting/Newreport'" class="btn btn-primary btn-lg" type="button">New Report of Civilian Harm</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="row">
+                            <div class="col text-center"><img width="100%" src="/reports.jpg"></div>
+                        </div>
+                        <h4 class="text-center card-title">Existing Reports</h4>
+                        <p class="card-text">Open existing reports of Civilian Harm that you have access to.</p>
+                        <div class="row">
+                            <div class="col text-center">
+                                <button onclick="window.location.href='/reporting/ExistingReports'" class="btn btn-primary btn-lg" type="button">Open Existing Reports</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    // <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    // <script id="bs-live-reload" data-sseport="5000" data-lastchange="1733655335164" src="/js/livereload.js"></script>
+}

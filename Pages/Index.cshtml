@@ -1,0 +1,28 @@
+﻿@page
+@model CHMR_DMP_PPR_Charlie_Docker.Pages.IndexModel
+@{
+}
+@{
+    ViewData["Title"] = "CHMR DMP Home page";
+}
+
+<form id="loginForm" class="needs-validation" novalidate method="post" enctype="multipart/form-data">
+    <div class="row justify-content-center">
+        <div class="col-md-4 col-sm-6 col-xs-12 card-container">
+            <div class="card" style="width: 300px;">
+                <div class="card-body">
+                    <div class="d-flex justify-content-center mb-3">
+                        <button type="button" id="goto_dod" name="login" class="btn btn-primary col-md-12" onclick="window.location.href='/dod'" use-submit-behavior="false">DoDI Login</button>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="button" id="goto_public" name="goto_public" class="btn btn-info col-md-12" onclick="window.location.href='/Public/Chirf'" use-submit-behavior="false">Go To Public Intake</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+
+</form>
+<div id="message" class="alert mt-4" style="display: none"></div>
+<div class="custom-divider"></div>

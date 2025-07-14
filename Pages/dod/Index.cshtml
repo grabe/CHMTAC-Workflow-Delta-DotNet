@@ -1,0 +1,63 @@
+﻿@page
+@model CHMR_DMP_PPR_Charlie_Docker.Pages.dod.DodIndexModel
+@{
+}
+@{
+    ViewData["Title"] = "CHMR DMP Home page";
+}
+
+<form id="loginForm" class="needs-validation" novalidate method="post" enctype="multipart/form-data">
+    <div class="row justify-content-center">
+        <div class="col-md-4 col-sm-6 col-xs-12 card-container">
+            <div class="card" style="width: 300px;">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between mb-1">
+                        <label class="control-label col-md-4" for="username">User name:</label>
+                        <input class="col-md-8" type="password" id="username" name="username" required />
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <label class="control-label col-md-4" for="password">Password:</label>
+                        <input class="col-md-8" type="password" id="password" name="password" required />
+                    </div>
+
+                    <div class="d-flex justify-content-center mb-3">
+                        <button type="submit" id="login" name="login" class="btn btn-primary col-md-12" use-submit-behavior="false">DoDI Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+
+</form>
+<div id="message" class="alert mt-4" style="display: none"></div>
+<div class="custom-divider"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    window.onload = window.history.forward(0);
+    document.getElementById("username").textContent = "shit"
+    document.getElementById("password").innerText = "fuck"
+    document.getElementById("message").style.display = "none";
+
+    document
+        .getElementById("login")
+        .addEventListener("submit", function (event) {
+            if (!this.checkValidity()) {
+                event.preventDefault();
+                document.getElementById("message").textContent =
+                    "Please fill in all required fields.";
+                document.getElementById("message").className =
+                    "alert alert-danger mt-4";
+            } else {
+                document.getElementById("message").textContent =
+                    "Logged in successfully!";
+                document.getElementById("message").className =
+                    "alert alert-success mt-4";
+            }
+            document.getElementById("message").style.display = "block";
+        });
+
+
+    // Add any additional JavaScript for showing/hiding conditional fields
+</script>

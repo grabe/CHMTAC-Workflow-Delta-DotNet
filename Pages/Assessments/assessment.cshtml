@@ -1,0 +1,573 @@
+﻿@page
+@model CHMR_DMP_PPR_Charlie_Docker.Pages.Assessments.assessmentModel
+@{
+}
+<div class="container">
+    <main class="pb-3" role="main">
+        <h1 class="text-center mb- mb-4">Civilian Harm Assessment</h1>
+        <div class="row justify-content-center">
+            <div id="info_box0" class="col card mb-4" style="background-color: steelblue;color: yellow;">
+                <p class="mt-md-0 pb-md-0 mb-md-0" style="margin-top: 15px;text-align: center;">Conduct an assessment of suspected civilian harm IAW DoDI 3000.17 §4.2.f. and §4.5.<br />Discover all information that supports a &quot;More likely than not&quot; conclusion.</p>
+            </div>
+        </div>
+        <div>
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-bs-toggle="tab" href="#tab-1">Reports</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-3">Amplified Baseline</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-2">Operations</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-4">Evidence Sources</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-5">Results/Recommendation</a></li>
+            </ul>
+            <div class="tab-content text-start">
+                <div id="tab-1" class="tab-pane active" role="tabpanel">
+                    <div id="submitted_reports" class="card shadow-lg mt-md-2 mb-md-3 pb-md-0">
+                        <div class="card-header text-white bg-primary mb-0 ps-0 pe-0 pt-0 pb-0">
+                            <h3 class="mb-0 ms-0 ps- ps-4">Other Submitted Reports</h3>
+                        </div>
+                        <div class="card-body bg-dark-subtle bg-gradient">
+                            <ul class="list-group lh-1 text-bg-info border-info shadow-lg">
+                                <li class="list-group-item"><span>Report ID 1</span></li>
+                                <li class="list-group-item"><span>Report ID 2</span></li>
+                                <li class="list-group-item"><span>Report ID <em>n</em></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="selected_report" class="card shadow-lg mt-md-4">
+                        <div class="card-header text-white bg-primary mb-0 ps-0 pe-0 pt-0 pb-0">
+                            <h3 class="mb-0 ms-0 ps- ps-4">Selected Report</h3>
+                        </div>
+                        <div class="card-body bg-dark-subtle bg-gradient">
+                            <div id="contact_info" class="card shadow-lg mt-md-0">
+                                <div class="card-header text-black bg-primary-subtle mb-0 ps-0 pe-0 pt-0 pb-0">
+                                    <h4 class="mb-0 ms-0 ps- ps-4">Contact Information</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div id="reporter_info" class="card border-info shadow-lg mb-sm-2">
+                                        <div class="card-header bg-info-subtle mb-0 pb-0 pt-0">
+                                            <h5>Reporter Information</h5>
+                                        </div>
+                                        <div class="card-body pb-sm-3">
+                                            <div class="row">
+                                                <div class="col-lg-2 text-end me-sm-0"><label class="col-form-label">First/Given name:</label></div>
+                                                <div class="col-lg-3"><input id="first_name" class="pt-sm-0 mt-sm- mt-sm-1" type="text" /></div>
+                                                <div class="col-lg-2 text-end"><label class="col-form-label me-sm-2">Last/Surname: </label></div>
+                                                <div class="col"><input id="last_name" class="pt-sm-0 mt-sm- mt-sm-1" type="text" /></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-2 text-end me-sm-0"><label class="col-form-label">Reporting Unit:</label></div>
+                                                <div class="col-lg-3"><input id="reporting_unit" class="pt-sm-0 mt-sm- mt-sm-1" type="text" /></div>
+                                                <div class="col-lg-2 text-end"><label class="col-form-label me-sm-2">Duty Title/Rank:</label></div>
+                                                <div class="col"><input id="dutytitle_rank" class="pt-sm-0 mt-sm- mt-sm-1" type="text" /></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-2 text-end me-sm-0"><label class="col-form-label">Commercial Phone:</label></div>
+                                                <div class="col-lg-3"><input id="comm_phone_num" class="pt-sm-0 mt-sm- mt-sm-1" type="text" /></div>
+                                                <div class="col-lg-2 text-end"><label class="col-form-label me-sm-2">DSN:</label></div>
+                                                <div class="col"><input id="dsn_num" class="pt-sm-0 mt-sm- mt-sm-1" type="text" /></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-2 text-end me-sm-0"><label class="col-form-label">E-Mail Address:</label></div>
+                                                <div class="col-lg-3"><input id="email_address" class="pt-sm-0 mt-sm- mt-sm-1" type="text" /></div>
+                                                <div class="col-lg-2 text-end"><label class="col-form-label me-sm-2">Assigned Unit:</label></div>
+                                                <div class="col"><input id="assigned_unit" class="pt-sm-0 mt-sm- mt-sm-1" type="text" /></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-2 text-end me-sm-0"><label class="col-form-label">Combatant CMD:</label></div>
+                                                <div class="col-lg-3"><input id="combatant_command" class="pt-sm-0 mt-sm- mt-sm-1" type="text" /></div>
+                                                <div class="col-lg-2 text-end"><label class="col-form-label me-sm-2">Other Command:</label></div>
+                                                <div class="col"><input id="other_command" class="pt-sm-0 mt-sm- mt-sm-1" type="text" /></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="additional_contacts" class="card border-info shadow-lg mt-md-3">
+                                        <div class="card-header bg-info-subtle mb-0 pb-0 pt-0">
+                                            <h5>Additional Contacts</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-lg-2 text-end me-sm-0"><label class="col-form-label">Full Name:</label></div>
+                                                <div class="col-lg-3"><input id="email_address-1" class="pt-sm-0 mt-sm- mt-sm-1" type="text" /></div>
+                                                <div class="col-lg-2 text-end"><label class="col-form-label me-sm-2">Contact Info:</label></div>
+                                                <div class="col"><input id="assigned_unit-1" class="pt-sm-0 mt-sm- mt-sm-1" type="text" /></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-2 text-end me-sm-0"><label class="col-form-label">Full Name:</label></div>
+                                                <div class="col-lg-3"><input id="email_address-2" class="pt-sm-0 mt-sm- mt-sm-1" type="text" /></div>
+                                                <div class="col-lg-2 text-end"><label class="col-form-label me-sm-2">Contact Info:</label></div>
+                                                <div class="col"><input id="assigned_unit-2" class="pt-sm-0 mt-sm- mt-sm-1" type="text" /></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="ch_baseline" class="card shadow-lg mt-sm-2 mt-md-3">
+                                <div class="card-header text-black bg-primary-subtle mb-0 ps-0 pe-0 pt-0 pb-0">
+                                    <h4 class="mb-0 ms-0 ps- ps-4">Civilian Harm Baseline</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div id="ch_time_window" class="card border-info shadow-lg mb-md-3">
+                                        <div class="card-header bg-info-subtle border-info mb-0 pb-0 pt-0">
+                                            <h5>Time Window</h5>
+                                        </div>
+                                        <div class="card-body pb-sm-3">
+                                            <div class="d-flex justify-content-between ms-md-4 me-md-5" jus>
+                                                <div><label class="form-label">Start Date/Time: </label><input class="mt-md-2" type="date" /></div>
+                                                <div><label class="form-label">End Date/Time: </label><input class="mt-md-2" type="date" /></div>
+                                                <div>
+                                                    <label class="form-label">Time zone: </label><select class="mt-sm-1 mt-md-2">
+                                                        <optgroup label="This is a group">
+                                                            <option value="12" selected>This is item 1</option>
+                                                            <option value="13">This is item 2</option>
+                                                            <option value="14">This is item 3</option>
+                                                        </optgroup>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="ch_location_info" class="card border-info shadow-lg mb-md-3">
+                                        <div class="card-header bg-info-subtle mb-0 pb-0 pt-0">
+                                            <h5>Location Information</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-lg-3 text-end me-sm-0"><label class="col-form-label">Coordinates/Location:</label></div>
+                                                <div class="col-lg-9"><input class="col-lg-12" type="text" /></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="suspected_ch" class="card border-info">
+                                        <div class="card-header bg-info-subtle mb-0 pb-0 pt-0">
+                                            <h5>Suspected Civilian Harm</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-lg-3 text-end me-sm-0"><label class="col-form-label">Total Civilian Harm:</label></div>
+                                                <div class="col-lg-9"><textarea class="col-lg-12"></textarea></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-3 text-end me-sm-0"><label class="col-form-label">U.S. Involvement:</label></div>
+                                                <div class="col-lg-9"><textarea class="col-lg-12"></textarea></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="additional_info" class="card shadow-lg mt-md-3">
+                                <div class="card-header text-black bg-primary-subtle mb-0 ps-0 pe-0 pt-0 pb-0">
+                                    <h4 class="mb-0 ms-0 ps- ps-4">Additional Information</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div>
+                                        <label class="form-label me-md-3">Uploaded files: </label>
+                                        <ul class="list-group">
+                                            <li class="list-group-item"><span>Filename #1</span></li>
+                                            <li class="list-group-item"><span>Filename #2</span></li>
+                                            <li class="list-group-item"><span>Filename #3</span></li>
+                                        </ul>
+                                        <div class="row">
+                                            <div class="col-lg-3 text-end me-sm-0"><label class="col-form-label">URL to External Documentation: </label></div>
+                                            <div class="col-lg-9"><input id="poc2_name-1" class="pt-sm-0 mt-sm- mt-sm-1 col-lg-12" type="text" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-md-4">
+                        <div class="col">
+                            <div class="d-flex justify-content-between">
+                                <div class="form-check mt-md-2"><input id="formCheck-1" class="form-check-input" type="checkbox" /><label class="form-check-label" for="formCheck-1" style="font-size: 18px;">Include in this review</label></div>
+                                <div class="form-check mt-md-2"><input id="formCheck-2" class="form-check-input" type="checkbox" /><label class="form-check-label" for="formCheck-2" style="font-size: 18px;">Provide further details on U.S. involvement?</label></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab-2" class="tab-pane" role="tabpanel">
+                    <div id="associated_ops" class="card shadow-lg mt-md-2 mb-md-3 pb-md-0">
+                        <div class="card-header text-white bg-primary mb-0 ps-0 pe-0 pt-0 pb-0">
+                            <h3 class="mb-0 ms-0 ps- ps-4">Associated Operations</h3>
+                        </div>
+                        <div class="card-body bg-dark-subtle bg-gradient">
+                            <ul class="list-group lh-1 text-bg-info border-info shadow-lg">
+                                <li class="list-group-item"><span>Associated Operation Name-1</span></li>
+                                <li class="list-group-item"><span>Associated Operation Name-2</span></li>
+                                <li class="list-group-item"><span>Associated Operation Name-<em>n</em></span></li>
+                            </ul>
+                            <div class="d-flex justify-content-between">
+                                <div class="btn-group gap-1" role="group"><button class="btn btn-primary" type="button">New</button><button class="btn btn-primary" type="button">Duplicate</button><button class="btn btn-primary" type="button">Add</button><button class="btn btn-primary" type="button">Edit</button><button class="btn btn-primary" type="button">Delete</button></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="contact_info-1" class="card shadow-lg mt-md-0">
+                        <div class="card-header text-black bg-primary-subtle mb-0 ps-0 pe-0 pt-0 pb-0">
+                            <h4 class="mb-0 ms-0 ps- ps-4">Operational Information</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-2 text-start me-sm-0"><label class="col-form-label">Operation Name:</label></div>
+                                <div class="col-lg-9"><input class="w-100" type="text" /></div>
+                            </div>
+                            <div class="row d-flex">
+                                <div class="col-lg-2 text-start me-sm-0"><label class="col-form-label">Participating Unit:</label></div>
+                                <div class="col-lg-6"><input class="col-lg-12 mt-md-1" type="text" /></div>
+                                <div class="col-lg-3 text-start"><input class="mt-md-1 me-md-2" type="checkbox" /><label class="form-label mt-md-1">Is Commanding Unit</label></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-2 text-start me-sm-0"><label class="col-form-label">Commander Name:</label></div>
+                                <div class="col-lg-4"><input class="col-lg-12 mt-md-1" type="text" /></div>
+                                <div class="col-lg-5 ps-md-4"><label class="form-label me-sm-2 me-md- pt-md-0 mt-md-1">Contact Info:</label><input id="assigned_unit-5" class="mt-md-1 col-md-9" type="text" /></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-2 text-start me-sm-0"><label class="col-form-label">Location:</label></div>
+                                <div class="col-lg-9"><input class="col-lg-12 mt-md-1" type="text" /></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <div><label class="form-label me-md- pe-md-0 me-md-1 mt-md-1">OPS Start Date/Time: </label><input class="mt-md-1" type="date" /></div>
+                                </div>
+                                <div class="col-lg-4 ps-md-0 pe-md- me-md-0 pe-md-0">
+                                    <div><label class="form-label mt-md-1">OPS End Date/Time: </label><input class="mt-md-1" type="date" /></div>
+                                </div>
+                                <div class="col-lg-3 pe-md-0 ps-md-0">
+                                    <div>
+                                        <label class="form-label">Time zone: </label><select class="mt-sm-1 mt-md-2">
+                                            <optgroup label="This is a group">
+                                                <option value="12" selected>This is item 1</option>
+                                                <option value="13">This is item 2</option>
+                                                <option value="14">This is item 3</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="ops_summaries-3" class="card shadow-lg mt-md-3">
+                        <div class="card-header text-black bg-primary-subtle mb-0 ps-0 pe-0 pt-0 pb-0">
+                            <h4 class="mb-0 ms-0 ps- ps-4">Operational Characteristics</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-group">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Operation Types</h5>
+                                        <hr />
+                                        <div class="form-check">
+                                            <div class="form-check text-start"><input id="formCheck-4" class="form-check-input" type="radio" /><label class="form-check-label" for="formCheck-4">Kinetic</label></div>
+                                            <div class="form-check text-start"><input id="formCheck-22" class="form-check-input" type="radio" /><label class="form-check-label" for="formCheck-22">Non-Kinetic</label></div>
+                                        </div>
+                                        <hr />
+                                        <div class="form-check">
+                                            <div class="form-check text-start"><input id="formCheck-5" class="form-check-input" type="radio" /><label class="form-check-label" for="formCheck-5">Kinetic</label></div>
+                                            <div class="form-check text-start"><input id="formCheck-6" class="form-check-input" type="radio" /><label class="form-check-label" for="formCheck-6">Non-Kinetic</label></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Domains</h5>
+                                        <hr />
+                                        <div class="form-check text-start"><input id="formCheck-7" class="form-check-input" type="checkbox" /><label class="form-check-label" for="formCheck-7">Air</label></div>
+                                        <div class="form-check text-start"><input id="formCheck-8" class="form-check-input" type="checkbox" /><label class="form-check-label" for="formCheck-8">Cyber</label></div>
+                                        <div class="form-check text-start"><input id="formCheck-11" class="form-check-input" type="checkbox" /><label class="form-check-label" for="formCheck-11">Ground</label></div>
+                                        <div class="form-check text-start"><input id="formCheck-12" class="form-check-input" type="checkbox" /><label class="form-check-label" for="formCheck-12">Maritime</label></div>
+                                        <div class="form-check text-start"><input id="formCheck-9" class="form-check-input" type="checkbox" /><label class="form-check-label" for="formCheck-9">Unknown</label></div>
+                                        <div class="form-check text-start"><input id="formCheck-10" class="form-check-input" type="checkbox" /><label class="form-check-label" for="formCheck-10">Other</label></div><input type="text" />
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Entities Involved</h5>
+                                        <hr />
+                                        <div class="form-check text-start"><input id="formCheck-13" class="form-check-input" type="checkbox" /><label class="form-check-label" for="formCheck-13">United States</label></div>
+                                        <div class="form-check text-start"><input id="formCheck-16" class="form-check-input" type="checkbox" /><label class="form-check-label" for="formCheck-16">Ally or Partner</label></div>
+                                        <div class="form-check text-start"><input id="formCheck-15" class="form-check-input" type="checkbox" /><label class="form-check-label" for="formCheck-15">Unknown</label></div>
+                                        <div class="form-check text-start"><input id="formCheck-14" class="form-check-input" type="checkbox" /><label class="form-check-label" for="formCheck-14">Other</label></div><input type="text" />
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Fires Information</h5>
+                                        <hr />
+                                        <div class="form-check text-start"><input id="formCheck-17" class="form-check-input" type="radio" /><label class="form-check-label text-start" for="formCheck-17">Direct Fire</label></div>
+                                        <div class="form-check text-start"><input id="formCheck-18" class="form-check-input" type="radio" /><label class="form-check-label" for="formCheck-18">Indirect Fire</label></div>
+                                        <hr />
+                                        <div class="form-check text-start"><input id="formCheck-19" class="form-check-input" type="radio" /><label class="form-check-label" for="formCheck-19">Deliberate</label></div>
+                                        <div class="form-check text-start"><input id="formCheck-20" class="form-check-input" type="radio" /><label class="form-check-label" for="formCheck-20">Dynamic</label></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="ops_summaries" class="card shadow-lg mt-md-3">
+                        <div class="card-header text-black bg-primary-subtle mb-0 ps-0 pe-0 pt-0 pb-0">
+                            <h4 class="mb-0 ms-0 ps- ps-4">Amplifying Details</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-3 text-end me-sm-0"><label class="col-form-label mt-md-1">Other Participating Units: </label></div>
+                                <div class="col-lg-9 align-self-center"><textarea class="col-lg-11"></textarea></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 text-end me-sm-0"><label class="col-form-label mt-md-1">Involved Platforms: </label></div>
+                                <div class="col-lg-9 align-self-center"><textarea class="col-lg-11"></textarea></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 text-end me-sm-0"><label class="col-form-label mt-md-1">Description of Targeting Process:</label></div>
+                                <div class="col-lg-9 align-self-center"><textarea class="col-lg-11"></textarea></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 text-end me-sm-0"><label class="col-form-label mt-md-1">Location of Shooter/Weapon: </label></div>
+                                <div class="col-lg-9 align-self-center"><input class="wt-100 col-lg-11" type="text" /></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 text-end me-sm-0"><label class="col-form-label mt-md-1">Intended Target Location: </label></div>
+                                <div class="col-lg-9 align-self-center"><input class="wt-100 col-lg-11" type="text" /></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 text-end me-sm-0"><label class="col-form-label mt-md-1">Weapon System Used: </label></div>
+                                <div class="col-lg-9 align-self-center"><input class="wt-100 col-lg-11" type="text" /></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 text-end me-sm-0"><label class="col-form-label mt-md-1">Munitions Type Used: </label></div>
+                                <div class="col-lg-9 align-self-center"><input class="wt-100 col-lg-11" type="text" /></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 text-end me-sm-0"><label class="col-form-label mt-md-1">Estimated # of Rounds Fired: </label></div>
+                                <div class="col-lg-9 align-self-center"><input type="number" /></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="ops_summaries-2" class="card shadow-lg mt-md-3">
+                        <div class="card-header text-black bg-primary-subtle mb-0 ps-0 pe-0 pt-0 pb-0">
+                            <h4 class="mb-0 ms-0 ps- ps-4">Operational Summaries</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-3 text-end me-sm-0"><label class="col-form-label mt-md-1">Results summaries of reviews, assessments, investigations: </label></div>
+                                <div class="col-lg-9 align-self-center"><textarea class="col-lg-11"></textarea></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 text-end me-sm-0"><label class="col-form-label mt-md-1">Key Observations and Lessons Learned: </label></div>
+                                <div class="col-lg-9 align-self-center"><textarea class="col-lg-11"></textarea></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 text-end me-sm-0"><label class="col-form-label mt-md-1">Recommendations for Mitigation of Future Civilian Harm: </label></div>
+                                <div class="col-lg-9 align-self-center"><textarea class="col-lg-11"></textarea></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-md-4">
+                        <div class="col">
+                            <div class="d-flex"><button class="btn btn-success shadow-lg mt-md-4 ms-md-3 mb-md-4" type="button">Save Changes</button></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab-3" class="tab-pane" role="tabpanel">
+                    <div id="ch_amp_baseline" class="card shadow-lg mt-sm-2">
+                        <div class="card-header text-black bg-primary-subtle mb-0 ps-0 pe-0 pt-0 pb-0">
+                            <h3 class="mb-0 ms-0 ps- ps-4">Civilian Harm</h3>
+                        </div>
+                        <div class="card-body bg-dark-subtle">
+                            <div id="ch_amp_time_window" class="card shadow-lg mb-sm-2">
+                                <div class="card-header bg-info-subtle mb-0 pb-0 pt-0">
+                                    <h5>Time Window</h5>
+                                </div>
+                                <div class="card-body pb-sm-3 pb-md-1 pt-md-0 mb-md-0">
+                                    <div class="d-flex justify-content-between ms-md-4 me-md-5" jus>
+                                        <div><label class="form-label">Start Date/Time: </label><input class="mt-md-2" type="date" /></div>
+                                        <div><label class="form-label">End Date/Time: </label><input class="mt-md-2" type="date" /></div>
+                                        <div>
+                                            <label class="form-label">Time zone: </label><select class="mt-sm-1 mt-md-2">
+                                                <optgroup label="This is a group">
+                                                    <option value="12" selected>This is item 1</option>
+                                                    <option value="13">This is item 2</option>
+                                                    <option value="14">This is item 3</option>
+                                                </optgroup>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="ch_amp_location" class="card shadow-lg mt-md-3">
+                                <div class="card-header bg-info-subtle mb-0 pb-0 pt-0">
+                                    <h5>Location Information</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col text-end me-sm-0"><label class="col-form-label mt-md-1">Coordinates/Locations:</label></div>
+                                        <div class="col-lg-9"><textarea class="col-lg-11"></textarea></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="ch_amp_suspected" class="card shadow-lg mt-md-3">
+                                <div class="card-header bg-info-subtle mb-0 pb-0 pt-0">
+                                    <h5>Suspected Civilian Harm (<em>read-only from initial review</em>)</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-lg-3 text-end me-sm-0"><label class="col-form-label mt-md-1">Total Civilian Harm:</label></div>
+                                        <div class="col-lg-9"><textarea class="col-lg-11"></textarea></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-3 text-end me-sm-0"><label class="col-form-label mt-md-1">U.S. Involvement:</label></div>
+                                        <div class="col-lg-9"><textarea class="col-lg-11"></textarea></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="ch_us_ch" class="card shadow-lg mt-md-3">
+                                <div class="card-header bg-info-subtle mb-0 pb-0 pt-0">
+                                    <h5>U.S. Culpable Civilian Harm</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-lg-3 text-end me-sm-0"><label class="col-form-label mt-md-1">Civilian Fatalities:</label></div>
+                                        <div class="col-lg-9"><textarea class="col-lg-11"></textarea></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-3"></div>
+                                        <div class="col">
+                                            <div><label class="form-label">Upper Bound: </label><input type="number" /></div>
+                                        </div>
+                                        <div class="col">
+                                            <div><label class="form-label">Lower Bound: </label><input type="number" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-lg-3 text-end me-sm-0"><label class="col-form-label mt-md-1">Civilian Injuries</label></div>
+                                        <div class="col-lg-9"><textarea class="col-lg-11"></textarea></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-3"></div>
+                                        <div class="col">
+                                            <div><label class="form-label">Upper Bound: </label><input type="number" /></div>
+                                        </div>
+                                        <div class="col">
+                                            <div><label class="form-label">Lower Bound: </label><input type="number" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-lg-3 text-end me-sm-0"><label class="col-form-label mt-md-1">Civilian Property Destroyed: </label></div>
+                                        <div class="col-lg-9"><textarea class="col-lg-11"></textarea></div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-lg-3 text-end me-sm-0"><label class="col-form-label mt-md-1">Civilian Property Damaged: </label></div>
+                                        <div class="col-lg-9"><textarea class="col-lg-11"></textarea></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-md-4">
+                        <div class="col">
+                            <div class="d-flex"><button class="btn btn-success shadow-lg mt-md-4 ms-md-3 mb-md-4" type="button">Save Changes</button></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab-4" class="tab-pane" role="tabpanel">
+                    <p>Tab content.</p>
+                    <div id="evidentiary_documentation" class="card shadow-lg mt-md-3">
+                        <div class="card-header text-black bg-primary-subtle mb-0 ps-0 pe-0 pt-0 pb-0">
+                            <h4 class="mb-0 ms-0 ps- ps-4">Evidentiary Documentation</h4>
+                        </div>
+                        <div class="card-body">
+                            <div>
+                                <label class="form-label me-md-3">Upload files: </label><input type="file" />
+                                <ul class="list-group">
+                                    <li class="list-group-item"><span>Filename #1</span></li>
+                                    <li class="list-group-item"><span>Filename #2</span></li>
+                                    <li class="list-group-item"><span>Filename #<em>n</em></span></li>
+                                </ul>
+                                <div class="row">
+                                    <div class="col-lg-3 text-end me-sm-0"><label class="col-form-label">URLs to External Documentation: </label></div>
+                                    <div class="col-lg-9 align-self-center"><textarea class="col-lg-11"></textarea></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-md-4">
+                        <div class="col">
+                            <div class="d-flex"><button class="btn btn-success shadow-lg mt-md-4 ms-md-3 mb-md-4" type="button">Save Changes</button></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab-5" class="tab-pane" role="tabpanel">
+                    <div id="results_recommendation" class="card shadow-lg mt-md-3">
+                        <div class="card-header text-black bg-primary-subtle mb-0 ps-0 pe-0 pt-0 pb-0">
+                            <h4 class="mb-0 ms-0 ps- ps-4">Results and Recommendation</h4>
+                        </div>
+                        <div class="card-body">
+                            <div>
+                                <div class="row">
+                                    <div class="col-lg-3 text-end me-sm-0"><label class="col-form-label">Summary: </label></div>
+                                    <div class="col-lg-9 align-self-center"><textarea class="col-lg-11 w-100"></textarea></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 text-end me-sm-0"><label class="col-form-label mt-md-1">Key Observations and Lessons Learned: </label></div>
+                                    <div class="col-lg-9 align-self-center"><textarea class="col-lg-11 w-100 pt-1 mt-3"></textarea></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 text-end me-sm-0" style="text-align: right;"><label class="col-form-label mt-md-1">Recommendations for Mitigation of Future Civilian Harm: </label></div>
+                                    <div class="col-lg-9 align-self-center"><textarea class="col-lg-11 w-100 mt- mt-3"></textarea></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 text-end me-sm-0" style="text-align: right;"><label class="col-form-label mt-md-1">Involved Criminality: </label></div>
+                                    <div class="col-lg-9 align-self-center">
+                                        <div class="btn-group-lg">
+                                            <div class="form-check"><input id="formCheck-3" class="form-check-input" type="radio" /><label class="form-check-label" for="formCheck-3">No Criminality Suspected</label></div>
+                                            <div class="form-check"><input id="formCheck-21" class="form-check-input" type="radio" /><label class="form-check-label" for="formCheck-21">Criminality Suspected</label></div>
+                                            <div class="form-check"><input id="formCheck-23" class="form-check-input" type="radio" /><label class="form-check-label" for="formCheck-23">Civilian Harm Resulted from Criminality</label></div>
+                                            <div class="form-check"><input id="formCheck-24" class="form-check-input" type="radio" /><label class="form-check-label" for="formCheck-24">Suspected Law of War Violation</label></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 text-end me-sm-0"><label class="col-form-label">Confidence Statement: </label></div>
+                                    <div class="col-lg-8 align-self-center">
+                                        <div class="form-check"><input id="formCheck-25" class="form-check-input" type="checkbox" /><label class="form-check-label" for="formCheck-25" data-bs-toggle="tooltip" title="(a) The “more likely than not” standard reflects the importance of assessing the facts as objectively as possible. An assessment of “more likely than not” reflects the command’s best understanding based on the information available at the time of the assessment. (b) The “more likely than not” standard also reflects the reality that information during military operations, including with respect to the outcomes of operations, is often lacking or incomplete. For example, examining imagery is not necessary to meet the “more likely than not” standard. (c) If there is reason to believe that civilians were injured or killed—or, when the scope of a civilian harm assessment includes damage or destruction of civilian objects, that civilian objects were damaged or destroyed—and that such harm resulted from U.S. military operations, and if other available information does not provide greater reason to believe that civilians were not killed or injured as a result of U.S. military operations, then the “more likely than not” standard would be met.">Evidence found meeting DoDI 3000.17 §4.2.f.(2) &quot;More Likely Than Not&quot; criteria.</label></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 text-end me-sm-0"><label class="col-form-label">Recommendation:  </label></div>
+                                    <div class="col-lg-4 align-self-center">
+                                        <select>
+                                            <optgroup label="Select Recommendation">
+                                                <option value="12" selected>Incomplete</option>
+                                                <option value="13">Completed</option>
+                                                <option value="14">Recommend Investigation</option>
+                                                <option value="15">Criminality Involved</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 text-end me-sm-0"><label class="col-form-label">Commander Approval:  </label></div>
+                                    <div class="col-lg-2 align-self-center">
+                                        <select readonly>
+                                            <optgroup label="Not Yet Reviewed">
+                                                <option value="12" selected>Not Yet Reviewed</option>
+                                                <option value="13">Under Consideration</option>
+                                                <option value="14">Approved</option>
+                                                <option value="15">Rejected</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-3 text-end"><label class="col-form-label mb-md-0 mt-md-4">Commander&#39;s Remarks: </label></div>
+                                    <div class="col-lg-4 text-start align-self-center"><textarea class="form-control-sm mt-md-4 w-100" readonly></textarea></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-md-4">
+                        <div class="col">
+                            <div class="d-flex justify-content-between"><button class="btn btn-success shadow-lg mt-md-4 ms-md-3 mb-md-4" type="button">Save Changes</button><button class="btn btn-primary shadow-lg mt-md-4 ms-md-3 mb-md-4" type="button">Submit</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><input type="hidden" name="__RequestVerificationToken" value="CfDJ8CPCXKrN75hAmFVnSJr8RiZYfMPVSmtF2kt1ohUOlRK5GLHFCiFTcq9740J7gMU9d_Y_7tlnAO15fMl3DjdFpLJMSwW3qnSUo_kAz84Qq7DWdqK2GgtKgf7f6Ps_TlH0TIymGV_bxIkNAsR839Bg3FI" />
+        <div id="message" class="alert mt-4" role="alert" style="display: none;"></div>
+        <div class="custom-divider"></div>
+    </main>
+</div>

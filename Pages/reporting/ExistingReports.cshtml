@@ -1,0 +1,55 @@
+﻿@page
+@model CHMR_DMP_PPR_Charlie_Docker.Pages.reporting.ExistingReportsModel
+@{
+}
+    <h1 class="text-center mb-5">Existing Reports of Civilian Harm</h1>
+
+    <table id="chir_listing_id" class="table table-hover table-striped" style="width: 100%;padding-top:0px; padding-bottom:0px;">
+        <thead>
+            <tr>
+                <th>Report ID</th>
+                <th>Source</th>
+                <th>Created</th>
+                <th>Status</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Time Zone</th>
+                <th>Location</th>
+                <th>Suspected Civilian Harm </th>
+                <th>Suspected U.S. Contribution</th>
+                <th>Reporter</th>
+        </tr>
+        </thead>
+        <tbody>
+            @foreach (CHMR_DMP_PPR_Charlie_Docker.Database.ReportingNS.Report report in @Model.Reports)
+            {
+                string props = string.Empty;
+                @if (report.Status.ToString() =="New" )
+                {
+                props = "class=\"clickable-row\" style=\"cursor: pointer;\" onclick=\"location.href='../reporting/EditReport?id=" + @report.Uuid + "&Status=" + @report.Status.ToString() + "'\"";
+                }
+                <tr @Html.Raw(@props)>
+                <td style="padding-top:0px;padding-bottom:0px;">@report.Uuid</td>
+                <td style="padding-top:0px;padding-bottom:0px;">@report.Source.ToString()</td>
+                <td style="padding-top:0px;padding-bottom:0px;">@report.Created</td>
+                <td style="padding-top:0px;padding-bottom:0px;">@report.Status.ToString()</td>
+                <td style="padding-top:0px;padding-bottom:0px;">@report.Baseline.StartDatetime.ToString("f")</td>
+                @if (report.Baseline.EndDatetime > DateTime.MinValue)
+                {
+                    <td style="padding-top:0px;padding-bottom:0px;">@report.Baseline.EndDatetime.ToString("f")</td>
+                }
+                else
+                {
+                    <td style="padding-top:0px;padding-bottom:0px;">""</td>
+                }
+                <td style="padding-top:0px;padding-bottom:0px;">@report.Baseline.Timezone</td>
+                <td style="padding-top:0px;padding-bottom:0px;">@report.Baseline.Location</td>
+                <td style="padding-top:0px;padding-bottom:0px;">@report.Baseline.TotalCivilianHarm</td>
+                <td style="padding-top:0px;padding-bottom:0px;">@report.Baseline.UsCivilianHarm</td>
+                <td style="padding-top:0px;padding-bottom:0px;">@report.Reporter.LastName</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+

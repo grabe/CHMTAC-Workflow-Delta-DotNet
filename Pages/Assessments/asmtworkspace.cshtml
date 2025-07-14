@@ -1,0 +1,46 @@
+﻿@page
+@model CHMR_DMP_PPR_Charlie_Docker.Pages.Assessments.asmtworkspaceModel
+@{
+    <div class="container py-4 py-xl-5">
+        <div class="row text-center justify-content-center align-items-center">
+            <div class="col-auto"><img class="d-inline-flex d-md-flex justify-content-center align-items-center align-content-center align-self-center justify-content-md-center align-items-md-center" src="https://www.defense.gov/portals/1/Page-Assets/branding-guide/logos/png/DoD-Logo-Stacked-1-Color.png" width="300px"></div>
+        </div>
+        <div class="row mb-5 pb-md-0 mb-md-2">
+            <div class="col-md-8 col-xl-6 text-center mx-auto ps-0 pe-0">
+                <h2 class="ms-md-0 ps-md-0">Civilian Harm Reports - Assessment Workspace</h2>
+            </div>
+        </div>
+        <div class="row row-cols-md-2 row-cols-xl-3 justify-content-center">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body p-4 me-md-0">
+                        <div class="row">
+                            <div class="col text-center"><img width="100%" src="/assessment-investigate.jpg"></div>
+                        </div>
+                        <h4 class="text-center card-title">Initiate Assessment</h4>
+                        <p class="card-text">Conduct assessment of a reviewed report of suspected civilian harm.</p>
+                        <div class="row">
+                            <div class="col text-center"><button onclick="window.location.href='/Assessments/assessment'" class="btn btn-primary btn-lg" type="button">Conduct an Assessment</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="row">
+                            <div class="col text-center"><img width="100%" src="/pile-of-assessments.jpg"></div>
+                        </div>
+                        <h4 class="text-center card-title">Existing Assessments</h4>
+                        <p class="card-text">Show a list of assessments available to you to select to perform actions.</p>
+                        <div class="row">
+                            <div class="col text-center"><button class="btn btn-primary btn-lg" type="button">My Assessments</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    // <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    // <script id="bs-live-reload" data-sseport="5000" data-lastchange="1733670951127" src="/js/livereload.js"></script>
+}

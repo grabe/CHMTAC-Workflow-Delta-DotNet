@@ -1,0 +1,47 @@
+﻿@page
+@model CHMR_DMP_PPR_Charlie_Docker.Pages.Shared.PartialViews.DodLandingCommon
+@{
+	if (CHMR_DMP_PPR_Charlie_Docker.Configuration.ConfigurationPoco.Role == CHMR_DMP_PPR_Charlie_Docker.Configuration.ConfigurationPoco.ESecurityRole.CHAC)
+	{
+        <div class="container py-4 py-xl-5">
+            <div class="row text-center justify-content-center align-items-center">
+                <div class="col-auto"><img class="d-inline-flex d-md-flex justify-content-center align-items-center align-content-center align-self-center justify-content-md-center align-items-md-center" src="https://www.defense.gov/portals/1/Page-Assets/branding-guide/logos/png/DoD-Logo-Stacked-1-Color.png" width="300px"></div>
+            </div>
+            <div class="row mb-5 pb-md-0 mb-md-2">
+                <div class="col-md-8 col-xl-6 text-center mx-auto ps-0 pe-0">
+                    <h2 class="ms-md-0 ps-md-0">Civilian Harm Mitigation and Response</h2>
+                    <p class="w-lg-50">&nbsp;The purpose of this site is to present interfaces, functionality, and workflow to demonstrate CHMR DMP design, foster meaningful discussion, and tighten the feedback loop.</p>
+                </div>
+            </div>
+            <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3 justify-content-center">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body p-4 me-md-0">
+                            <div class="row">
+                                <div class="col text-center"><img width="100%" src="/gaza-children.jpg"></div>
+                            </div>
+                            <h4 class="text-center card-title">Report Civilian Harm</h4>
+                            <p class="card-text">Open the civilian harm workspace to submit a new report of suspected civilian harm and review open reports you have access to.</p>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <button onclick="window.location.href='/reporting/reportingworkspace'" class="btn btn-primary btn-lg" type="button">Open Reporting Workspace</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        // <script>
+        //     $(document).ready(function () {
+        //         $("#reporting_workspace").click(function () {
+        //             window.location.href = '@Url.Action("NewPage", "ControllerName")';
+        //         });
+        //     });
+        // </script>
+        // <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+        // <script id="bs-live-reload" data-sseport="5000" data-lastchange="1733621326185" src="/js/livereload.js"></script>
+    }
+	else
+		RedirectToPage("Error");
+}

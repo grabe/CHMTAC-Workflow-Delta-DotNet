@@ -1,0 +1,277 @@
+﻿@page
+@model CHMR_DMP_PPR_Charlie_Docker.Pages.Public.ChirfModel
+@{
+}
+
+<h1 class="text-center mb-5">Report Suspected Civilian Harm</h1>
+
+<div class="container-fluid py-2">
+
+    <button class="btn btn-secondary mb-6" type="reset" onclick="resetForm()">
+        Reset Form
+    </button>
+
+    <br />
+
+    <form id="chirform" class="needs-validation" novalidate method="post" enctype="multipart/form-data">
+        <div class="card mb-5">
+            <div class="card-header bg-primary-subtle text-black">
+                <h4 class="mb-0">
+                    Contact Information
+                </h4>
+            </div>
+            <div class="card-body">
+                <div class="card mb-5">
+                    <div class="card-header bg-info-subtle text-black">
+                        <div class="pline1"><b>Who are you?</b></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="first_name" class="form-label">First Name: *</label>
+                                <input type="text"
+                                       class="form-control"
+                                       id="first_name" name="first_name"
+                                       required />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="last_name" class="form-label">Last Name: *</label>
+                                <input type="text"
+                                       class="form-control"
+                                       id="last_name" name="last_name"
+                                       required />
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="phone_commercial" class="form-label">Phone Number:</label>
+                                <input type="tel" class="form-control" id="phone_commercial" name="phone_commercial" />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email_address" class="form-label">Email:</label>
+                                <input type="email" class="form-control" id="email_address" name="email_address" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header bg-info-subtle text-black">
+                        <div class="pline1"><b>Additional Contacts</b></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-1">
+                            <div class="col-md-6">
+                                <label for="poc1_name" class="form-label">POC Name:</label>
+                                <input type="text"
+                                       class="form-control"
+                                       id="poc1_name" name="poc1_name" />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="poc1_contact_info" class="form-label">Contact Info:</label>
+                                <input type="text"
+                                       class="form-control"
+                                       id="poc1_contact_info" name="poc1_contact_info" />
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="poc2_name" class="form-label">POC Name:</label>
+                                <input type="text"
+                                       class="form-control"
+                                       id="poc2_name" name="poc2_name" />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="poc2_contact_info" class="form-label">Contact Info:</label>
+                                <input type="text"
+                                       class="form-control"
+                                       id="poc2_contact_info" name="poc2_contact_info" />
+                            </div>
+                        </div>
+                        </<div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const tzField = document.getElementById('time_zone');
+                    const tzList = Intl.supportedValuesOf('timeZone');
+                    const currentTz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                    tzList.forEach((tz) => {
+                        var option = document.createElement('option');
+                        option.value = tz;
+                        option.text = tz;
+                        option.selected = tz === currentTz;
+                        tzField.appendChild(option);
+                    });
+                });
+            </script>
+
+            <div class="card mb-5" id="baseline_submission">
+                <div class="card-header bg-primary-subtle text-black">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h4 class="mb-0">Suspected Civilian Harm</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card">
+                        <div class="card-header bg-info-subtle text-black"><div class="pline1"><b>When might civilian harm have occurred?</b></div></div>
+                        <div class="card-body">
+                            <div class="mb-1">
+                                <div class="row">
+                                    <div class="col-md-4 mb-1">
+                                        <label for="incident_start_datetime" class="form-label">Date and Time: *</label>
+                                        <input type="datetime-local"
+                                               class="form-control"
+                                               id="incident_start_datetime" name="incident_start_datetime" required />
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <label for="incident_end_datetime" class="form-label">End Date and Time:</label>
+                                        <input type="datetime-local"
+                                               class="form-control"
+                                               id="incident_end_datetime" name="incident_end_datetime" />
+                                    </div>
+
+                                    <div class="col-md-4 mb-1">
+                                        <label for="time_zone" class="form-label">Timezone:</label>
+                                        <select class="form-select" id="time_zone" name="time_zone">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                        function getLocation() {
+                            if (navigator.geolocation) {
+                                navigator.geolocation.getCurrentPosition(showPosition);
+                            } else {
+                                x.value = "Geolocation is not supported by this browser.";
+                            }
+                        }
+
+                        function showPosition(position) {
+                            const x = document.getElementById("location");
+                            console.log(x);
+                            x.value = x.value + (x.value.length > 0 ? ", " : "") + position.coords.latitude + "," + position.coords.longitude;
+                        }
+                    </script>
+                    <br />
+                    <div class="card" data-bs-tooltip="Enter coordinate or country/region, state/province, city/township or directions." data-bs-placement="top">
+                        <div class="card-header bg-info-subtle text-black"><div class="pline1"><b>Where might civilian harm have occurred?</b></div></div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label for="location" class="form-label">Coordinates/Location: *</label>
+                                <input type="text" class="form-control" id="location" name="location" required />
+                            </div>
+                            <button type="button" onclick="getLocation()">Get Location</button>
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="card">
+                        <div class="card-header bg-info-subtle text-black"><div class="pline1"><b>What happened?</b></div></div>
+                        <div class="card-body">
+                            <div class="mb-1">
+                                <label for="total_harm" class="form-label">Describe all civilian harm you suspect: *</label>
+                                <textarea type="text" class="form-control" id="total_harm" name="total_harm" required></textarea>
+                            </div>
+                            <div class="mb-1">
+                                <label for="us_harm" class="form-label">What might have involved the U.S. military? *</label>
+                                <textarea type="text" class="form-control" id="us_harm" name="us_harm" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="card">
+                        <div class="card-header bg-info-subtle text-black">
+                            <b>External Information Sources</b>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label for="files[]" class="form-label">Upload files: </label>
+                                <input id="input-files" type="file" name="files[]" multiple>
+
+                                <ul id="uploaded-files">
+                                    <!-- list items will be populated dynamically -->
+                                </ul>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="documentation_url" class="form-label">Or provide a URL link to available documentation:</label>
+                                <input type="url" class="form-control" id="documentation_url" name="documentation_url" multiple />
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        const inputFiles = document.getElementById('input-files');
+                        const uploadedFilesList = document.getElementById('uploaded-files');
+
+                        inputFiles.addEventListener('change', (e) => {
+                          e.preventDefault();
+
+                          uploadedFilesList.innerHTML = '';
+                          for (var i = 0; i < inputFiles.files.length; i++) {
+                            const listItem = document.createElement('li');
+                            listItem.textContent = "Filename: " + inputFiles.files[i].name + "\t\t size: " + inputFiles.files[i].size;
+                            uploadedFilesList.appendChild(listItem);
+                          }
+                        });
+                    </script>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <button type="submit" id="save_for_later" name="save_for_later" class="btn btn-info" use-submit-behavior="false">Save for Later</button>
+                <button type="submit" id="submit" name="submit" class="btn btn-primary" use-submit-behavior="false">Submit</button>
+            </div>
+
+            <br />
+            <div>
+                <button class="btn btn-secondary mt-4" type="reset" onclick="resetForm()">
+                    Reset Form
+                </button>
+            </div>
+
+            <input type="text" id="report_id" name="report_id" style="display: none;" />
+        </div>
+    </form>
+
+    <div id="message" class="alert mt-4" style="display: none"></div>
+
+    <div class="custom-divider"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Add your existing JavaScript here
+    function resetForm() {
+        document.getElementById("chirform").reset();
+        document.getElementById("message").style.display = "none";
+    }
+
+    document
+        .getElementById("chirform")
+        .addEventListener("submit", function (event) {
+            if (!this.checkValidity()) {
+                event.preventDefault();
+                document.getElementById("message").textContent =
+                    "Form not submitted, please fill in all required fields.";
+                document.getElementById("message").className =
+                    "alert alert-danger mt-4";
+            } else {
+                document.getElementById("message").textContent =
+                    "Form submitted successfully!";
+                document.getElementById("message").className =
+                    "alert alert-success mt-4";
+            }
+            document.getElementById("message").style.display = "block";
+        });
+
+</script>

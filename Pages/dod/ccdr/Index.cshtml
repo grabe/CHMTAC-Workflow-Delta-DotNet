@@ -1,0 +1,8 @@
+﻿@page
+@model CHMR_DMP_PPR_Charlie_Docker.Pages.Shared.PartialViews.DodLandingCommon
+@{
+	if (CHMR_DMP_PPR_Charlie_Docker.Configuration.ConfigurationPoco.Role == CHMR_DMP_PPR_Charlie_Docker.Configuration.ConfigurationPoco.ESecurityRole.CCDR)
+		await Html.RenderPartialAsync("PartialViews/_FullDodLandingPartial");
+	else
+		RedirectToPage("Error");
+}

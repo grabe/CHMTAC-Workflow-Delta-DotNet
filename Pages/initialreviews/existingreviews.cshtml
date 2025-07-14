@@ -1,0 +1,32 @@
+﻿@page
+@model CHMR_DMP_PPR_Charlie_Docker.Pages.initialreviews.ExistingReviewsModel
+@{
+}
+    <h1 class="text-center mb-5">Existing Initial Reviews</h1>
+
+    <table id="chir_listing_id" class="table table-hover table-striped" style="width: 100%;padding-top:0px; padding-bottom:0px;">
+        <thead>
+            <tr>
+                <th>Review ID</th>
+                <th>Report ID</th>
+                <th>Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (CHMR_DMP_PPR_Charlie_Docker.Database.AssessmentNS.InitialReview ir in @Model.Reviews)
+            {
+                string props = string.Empty;
+                @if (ir.CommanderApproval.ToString() != "Approved")
+                {
+                props = "class=\"clickable-row\" style=\"cursor: pointer;\" onclick=\"location.href='../initialreviews/initialreview?id=" + @ir.Uuid + "'\"";
+                }
+                <tr @Html.Raw(@props)>
+                <td style="padding-top:0px;padding-bottom:0px;">@ir.Uuid.ToString()</td>
+                <td style="padding-top:0px;padding-bottom:0px;">@ir.ReportUnderReview?.Uuid.ToString()</td>
+                <td style="padding-top:0px;padding-bottom:0px;">@ir.Title</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+
